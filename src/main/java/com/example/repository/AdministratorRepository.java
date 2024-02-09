@@ -55,6 +55,7 @@ public class AdministratorRepository {
     public Administrator findByMailAddressAndPassword(String mailAddress, String password) {
         String query = """
             SELECT 
+                name,
                 mail_address,
                 password 
             from 

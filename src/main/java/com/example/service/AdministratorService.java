@@ -13,7 +13,23 @@ public class AdministratorService {
     @Autowired
     private AdministratorRepository administratorRepository;
 
+    /**
+     * administratorRepositoryクラスのinsertメソッドを呼び出す.
+     * 
+     * @param administrator
+     */
     public void insert(Administrator administrator) {
         administratorRepository.insert(administrator);
+    }
+
+    /**
+     * administratorRepositoryクラスのfindByMailAddressAndPasswordメソッドを呼び出す.
+     * @param mailAddress
+     * @param password
+     * @return 管理者情報
+     */
+    public Administrator login(String mailAddress, String password) {
+        Administrator administrator = administratorRepository.findByMailAddressAndPassword(mailAddress, password);
+        return administrator;
     }
 }
